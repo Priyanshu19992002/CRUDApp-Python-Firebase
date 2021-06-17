@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{t['name']}}</title>
+</head>
+<body>
+    <form action="/{{userid}}" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your Name" value="{{t['name']}}">
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" placeholder="Enter your Age" value="{{t['age']}}">
+        <label for="loc">Location</label>
+        <input type="text" name="location" id="loc" placeholder="Enter your Country name" value="{{t['location']}}">
+        <button type="submit">Update</button>
+    </form>
+    <hr>
+    {% for key,item in t.items() %}
+    <ul>
+        <li>{{key}} - {{item}}</li>
+    </ul>
+    {% endfor %}
+    <form action="/{{userid}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+    <button style="margin-top: 10px;"><a href="/">Back</a></button>
+    <hr>
+</body>
+</html>
